@@ -62,7 +62,7 @@ MEDIA QUERIES
 
 @media screen and (max-width: 1024px) {
   .main__news-article-title {
-    justify-self: flex-start;
+    align-self: flex-start;
     margin-left: $base-size * 3;
     font-size: 7vw;
   }
