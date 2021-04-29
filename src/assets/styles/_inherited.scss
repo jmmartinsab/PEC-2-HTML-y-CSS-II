@@ -1,0 +1,19 @@
+/**
+*INHERITED
+*/
+
+//Use @extend to run your mixin
+
+%global {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  max-width: $document-width;
+  scroll-behavior: smooth;
+}
+
+%titleSec {
+  margin-bottom: $base-size * 2;
+  font-family: "Big Shoulders Stencil Text", cursive;
+  color: $purple-dark;
+}

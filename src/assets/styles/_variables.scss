@@ -1,0 +1,46 @@
+@use "sass:color";
+
+/**
+*Bootstrap colours, theme and custom
+*/
+
+$theme-colors: (
+  "primary": #46005c,
+);
+
+$custom-colors: (
+  "purple-dark": #2d003b,
+  "purple-main": #46005c,
+  "purple-light": #7f3696,
+  "purple-lighter": #c066de,
+);
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+/**
+*Colours
+*/
+
+$purple-dark: #2d003b;
+$purple-main: #46005c;
+$purple-light: #7f3696;
+$purple-lighter: #c066de;
+
+/**
+*weights
+*/
+
+$thin: 300;
+$medium: 500;
+$semi-bold: 600;
+$bold: 700;
+$extra-bold: 800;
+$bolder: 900;
+
+/**
+*sizes
+*/
+
+$document-width: 100%;
+$base-size: 8px;
+$margin-side: $base-size * 8;

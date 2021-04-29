@@ -1,0 +1,9 @@
+/**
+*MIXINS
+*/
+
+//Use @include to run your mixin
+
+@mixin shadowAxisY($axisY) {
+  box-shadow: 0 $axisY 4px $purple-dark;
+}

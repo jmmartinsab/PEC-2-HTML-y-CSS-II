@@ -1,0 +1,423 @@
+* {
+  @extend %global;
+}
+
+/**
+* Grid page definition
+*/
+
+.grid-page {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 120px 1fr 120px;
+
+  grid-template-areas:
+    "header header header header header header header header header header header header"
+    "content content content content content content content content content content content content"
+    "footer footer footer footer footer footer footer footer footer footer footer footer";
+}
+
+/*=====================================================================*\
+HEADER & MENU
+\*=====================================================================*/
+
+.header {
+  //display
+  grid-area: header;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  //styles
+  padding: 0 $margin-side;
+  @include shadowAxisY(2px);
+}
+
+.header__logo {
+  width: $base-size * 8;
+}
+
+.hamburger {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  display: none;
+}
+
+.hamburger:focus {
+  outline: none;
+}
+
+.header__menu {
+  //display
+  display: flex;
+  align-items: center;
+}
+
+.header__item {
+  margin-left: $base-size * 4;
+  list-style: none;
+}
+
+.header__link {
+  text-decoration: none;
+  font-weight: $semi-bold;
+  font-size: $base-size * 3 - 4;
+  color: $purple-lighter;
+}
+
+.header__link--active {
+  font-weight: $semi-bold;
+  color: $purple-main;
+}
+
+.header__link:hover {
+  font-weight: $semi-bold;
+  color: $purple-dark;
+}
+
+/*=====================================================================*\
+FOOTER
+\*=====================================================================*/
+.footer {
+  grid-area: footer;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 $margin-side;
+  @include shadowAxisY(-2px);
+}
+
+.footer__logo {
+  width: $base-size * 6;
+}
+
+.footer__menu {
+  display: flex;
+}
+
+.footer__item {
+  list-style: none;
+  margin-left: $base-size * 4;
+}
+
+.footer__link {
+  text-decoration: none;
+  font-weight: $thin;
+  font-size: $base-size * 3 - 4;
+  color: $purple-main;
+}
+
+.footer__link-ml {
+  margin-left: $base-size * 3;
+}
+
+.footer__social {
+  display: flex;
+  align-items: center;
+}
+
+.footer__icon {
+  font-size: $base-size * 4;
+  color: $purple-light;
+}
+
+.footer__icon:hover {
+  color: $purple-main;
+}
+
+/*=====================================================================*\
+HOME
+\*=====================================================================*/
+
+.main {
+  grid-area: content;
+}
+
+.main__content {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+
+  background-image: url("https://www.lorrainemusicacademy.com/wp-content/uploads/2016/09/Band-4_1.jpg");
+  background-size: cover;
+  background-position: center;
+  min-height: 1080px;
+}
+
+.main__band {
+  grid-area: 2 / 2 / 2 / 5;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: rgba(45, 0, 59, 0.69);
+}
+
+.main__band-title {
+  font-family: "Trade Winds", cursive;
+  font-size: 6vw;
+  color: white;
+  margin-bottom: 0;
+}
+
+.main__tour {
+  grid-area: 5 / 5 / 6 / 9;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  background-color: white;
+}
+
+.main__tour-text {
+  margin-left: $base-size * 3;
+  font-family: "Big Shoulders Stencil Text", cursive;
+  font-size: 2.8vw;
+  color: $purple-dark;
+  margin-bottom: 0;
+}
+
+.main__dates {
+  grid-area: 1/6/5/9;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  background-color: rgba(192, 102, 222, 0.8);
+}
+
+.main__dates-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  list-style: none;
+}
+
+.main__dates-item {
+  font-family: "Big Shoulders Stencil Text", cursive;
+  font-size: 1.8vw;
+  margin-bottom: $base-size * 4;
+}
+
+.main__dates-item-weight {
+  font-weight: $bold;
+}
+
+.main__info {
+  grid-area: 7 / 6 / 8 / 9;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.main__info-button {
+  font-size: 1.3vw;
+}
+
+/*=======================================*\
+SUPPORTS
+\*=======================================*/
+
+@supports not (display: grid) {
+  .grid-page {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .header {
+    padding: $base-size * 5 $margin-side;
+  }
+
+  .footer {
+    padding: $base-size * 5 $margin-side;
+  }
+
+  .main__content {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .main__band {
+    padding: 0 $base-size * 3;
+    width: 35%;
+  }
+
+  .main__band-title {
+    font-size: 4vw;
+  }
+
+  .main__tour {
+    padding: $base-size * 3;
+    width: 25%;
+  }
+
+  .main__tour-text {
+    margin: 0;
+    font-size: 2.2vw;
+  }
+
+  .main__dates {
+    padding: 0 $base-size * 4;
+    width: 40%;
+  }
+
+  .main__dates-list {
+    padding: $base-size * 3;
+  }
+
+  .main__dates-item {
+    font-size: 1.5vw;
+  }
+
+  .main__info {
+    width: 100%;
+  }
+
+  .main__info-button {
+    font-size: 1.6vw;
+  }
+}
+
+/*=======================================*\
+MEDIA QUERIES
+\*=======================================*/
+
+/**
+*MENU
+*/
+
+@media screen and (max-width: 1024px) {
+  .grid-page {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 1fr 1fr 1fr;
+
+    grid-template-areas:
+      "header header header header header header header header header header header header"
+      "content content content content content content content content content content content content"
+      "footer footer footer footer footer footer footer footer footer footer footer footer";
+  }
+
+  .header {
+    padding: 0 $base-size * 3;
+  }
+
+  .header__logo {
+    width: 40px;
+    padding: $base-size * 3 0;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .header__menu-container {
+    display: none;
+  }
+
+  .js-header__menu-container--show {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+
+    .js-header__menu {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: $base-size * 3;
+      padding: 0;
+
+      .header__item {
+        margin-bottom: $base-size * 3;
+        margin-left: 0;
+
+        .header__link {
+          font-size: 5vw;
+        }
+      }
+    }
+  }
+
+  /**
+  *FOOTER
+  */
+
+  .footer {
+    flex-direction: column;
+    padding: $base-size * 3 0;
+  }
+
+  .footer__menu {
+    padding: $base-size * 3 0;
+    margin: 0;
+  }
+
+  .footer__item {
+    margin-left: 3vw;
+  }
+
+  .footer__item:nth-child(1) {
+    margin-left: 0;
+  }
+
+  .footer__link:nth-child(1) {
+    margin-left: 0;
+  }
+
+  /**
+  *HOME
+  */
+
+  .main__content {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: initial;
+  }
+
+  .main__band {
+    grid-area: 1/1/2/4;
+  }
+
+  .main__tour {
+    grid-area: 7/1/8/6;
+  }
+
+  .main__tour-text {
+    font-size: 6vw;
+  }
+
+  .main__dates {
+    grid-area: 2/1/7/9;
+  }
+
+  .main__dates-list {
+    padding-left: 0;
+  }
+
+  .main__dates-item {
+    font-size: 4vw;
+  }
+
+  .main__info {
+    grid-area: 8/3/9/7;
+  }
+
+  .main__info-button {
+    font-size: 4vw;
+  }
+}

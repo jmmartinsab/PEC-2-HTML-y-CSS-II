@@ -1,0 +1,50 @@
+/*=====================================================================*\
+CONTACT US 
+\*=====================================================================*/
+.main__form-intro {
+  margin: $base-size * 5 $margin-side;
+}
+
+.main__form-intro-title {
+  @extend %titleSec;
+}
+
+.main__form-intro-text {
+  margin: 0 auto;
+  width: 50vw;
+}
+
+.main__form {
+  margin: 0 auto $base-size * 5 auto;
+  width: 50vw;
+}
+
+.main__form-item {
+  margin-top: $base-size * 4;
+}
+
+/*=======================================*\
+MEDIA QUERIES
+\*=======================================*/
+
+/**
+*NEWS
+*/
+
+@media screen and (max-width: 1024px) {
+  .main__form-intro {
+    margin: $base-size * 5 $base-size * 3;
+  }
+
+  .main__form-intro-title {
+    font-size: 7vw;
+  }
+
+  .main__form-intro-text {
+    width: 80vw;
+  }
+
+  .main__form {
+    width: 80vw;
+  }
+}

@@ -1,0 +1,125 @@
+/*=====================================================================*\
+ABOUT
+\*=====================================================================*/
+.main__breadcrumb {
+  padding-left: $margin-side;
+  padding-top: $base-size * 2;
+}
+
+.main__breadcrumb-link {
+  color: $purple-light;
+}
+
+.main__about-intro {
+  margin: $base-size * 5 0;
+  padding: 0 $margin-side;
+}
+
+.main__about-intro-text-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.main__about-intro-title {
+  @extend %titleSec;
+}
+
+.main__about-intro-text {
+  color: $purple-dark;
+}
+
+.main__about-intro-text-right {
+  padding-right: $base-size;
+}
+
+.main__about-intro-text-left {
+  padding-left: $base-size;
+}
+
+.main__about-members {
+  padding: 0 $margin-side $base-size * 5 $margin-side;
+}
+
+.main__about-members-title {
+  @extend %titleSec;
+}
+
+.main__about-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-top: $base-size * 2;
+}
+
+.main__about-card {
+  width: 38vw;
+  box-shadow: 0 2px 4px $purple-main;
+  margin-bottom: $base-size * 3;
+}
+
+.main__about-card-title {
+  font-family: "Big Shoulders Stencil Text", cursive;
+  font-size: $base-size * +4;
+  color: $purple-dark;
+}
+
+/*=======================================*\
+SUPPORTS
+\*=======================================*/
+
+@supports not (display: grid) {
+  .main__about-intro-text-grid {
+    display: grid;
+  }
+
+  .main__about-intro-text {
+    width: 45vw;
+  }
+}
+
+/*=======================================*\
+MEDIA QUERIES
+\*=======================================*/
+
+/**
+*ABOUT
+*/
+
+@media screen and (max-width: 1024px) {
+  .main__about-intro {
+    padding: 0 $base-size * 3;
+  }
+
+  .main__about-intro-title {
+    font-size: 7vw;
+  }
+
+  .main__about-intro-text-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .main__about-intro-text-left {
+    padding: 0;
+  }
+
+  .main__about-intro-text-right {
+    padding: 0;
+  }
+
+  .main__about-members {
+    padding: 0 $base-size * 3 $base-size * 5 $base-size * 3;
+  }
+
+  .main__about-members-title {
+    font-size: 7vw;
+  }
+
+  .main__about-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .main__about-card {
+    width: 90vw;
+  }
+}
